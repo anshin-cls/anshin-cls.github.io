@@ -2,7 +2,7 @@
 <html>
 <head lang="ja">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>SkyWay JS SDK Tutorial</title>
+    <title>Video Chat</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <div class="pure-g">
@@ -15,19 +15,21 @@
 
     <!-- Steps -->
     <div class="pure-u-1-3">
-        <h2>SkyWay Video Chat</h2>
+        <H3>Video Chat</H3>
 
-        <p>あなたの id: <span id="my-id">...</span></p>
-        <p>あなたの id を相手に教えることで、通話可能になります。</p>
-        <h3>Make a call</h3>
+        <p>あなたの ID: <span id="my-id">...</span></p>
+        <p>あなたの ID を相手とシェアしてください。</p>
+        <br>
         <form id="make-call" class="pure-form">
-            <input type="text" placeholder="Call user id..." id="callto-id">
-            <button href="#" class="pure-button pure-button-success" type="submit">Call</button>
+            <input type="text" placeholder="相手の ID" id="callto-id">
+            <button href="#" class="pure-button pure-button-success" type="submit">開始</button>
         </form>
         <form id="end-call" class="pure-form">
-            <p>Currently in call with <span id="their-id">...</span></p>
-            <button href="#" class="pure-button pure-button-success" type="submit">End Call</button>
+            <p>相手の ID: <span id="their-id">...</span></p>
+            <button href="#" class="pure-button pure-button-success" type="submit">終了</button>
         </form>
+        <br>
+        <p>powerd by SkyWay</p>
     </div>
 </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
