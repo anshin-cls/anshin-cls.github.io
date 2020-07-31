@@ -17,7 +17,8 @@ navigator.mediaDevices.getUserMedia({video: true, audio: true})
 
 peer = new Peer({
     key: 'b0f8a736-9fd3-44ea-a0f0-5cf7a74c1b9d',
-    debug: 3
+    debug: 1
+    // NONE=0,ERROR=1,WARN=2,ALL=3
 });
 
 peer.on('open', function(){
