@@ -4,6 +4,8 @@ let localStream = null;
 let peer = null;
 let existingCall = null;
 
+let datetime = new Date();
+
 navigator.mediaDevices.getUserMedia({video: true, audio: true})
 .then(function (stream) {
     // Success
@@ -15,7 +17,8 @@ navigator.mediaDevices.getUserMedia({video: true, audio: true})
     return;
 });
 
-peer = new Peer({
+peer = new Peer(
+    datetime.getMilliseconds(),{
     key: 'b0f8a736-9fd3-44ea-a0f0-5cf7a74c1b9d',
     debug: 1
     // NONE=0,ERROR=1,WARN=2,ALL=3
