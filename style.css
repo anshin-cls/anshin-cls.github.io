@@ -36,7 +36,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 }
 
 #my-video {
-    margin-top: 0px;
+    margin-top: 15px;
     width: 280px;
     height: auto;
     background-color: #eee;
