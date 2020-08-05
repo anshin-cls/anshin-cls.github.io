@@ -33,9 +33,11 @@ peer.on('error', function(err){
 });
 
 peer.on('close', function(){
+    alert('通話は切断されました。');
 });
 
 peer.on('disconnected', function(){
+    alert('シグナリングサーバーは切断されました。');
 });
 
 $('#make-call').submit(function(e){
