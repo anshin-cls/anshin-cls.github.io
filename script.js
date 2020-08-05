@@ -20,33 +20,27 @@ navigator.mediaDevices.getUserMedia({video: true, audio: true})
 peer = new Peer(
     ('000' + datetime.getMilliseconds()).slice(-3),{
     key: 'b0f8a736-9fd3-44ea-a0f0-5cf7a74c1b9d',
-    debug: 3
+    debug: 1
     // NONE=0,ERROR=1,WARN=2,ALL=3
 });
 
 peer.on('open', function(){
     $('#my-id').text(peer.id);
-    alert('setuzokuされました。');
 });
 
 peer.on('error', function(err){
     alert(err.message);
 });
 
+peer.on('call', function(call){
+    call.answer(localStream);
+    setupCallEventHandlers(call);
+});
+
 peer.on('close', function(){
-    alert('通話は切断されました。');
 });
 
 peer.on('disconnected', function(){
-    alert('シグナリングサーバーは切断されました。');
-});
-
-peer.on('peerJoin', function(){
-    alert('入室されました。');
-});
-
-peer.on('peerLeave', function(){
-    alert('退室されました。');
 });
 
 $('#make-call').submit(function(e){
@@ -57,11 +51,6 @@ $('#make-call').submit(function(e){
 
 $('#end-call').click(function(){
     existingCall.close();
-});
-
-peer.on('call', function(call){
-    call.answer(localStream);
-    setupCallEventHandlers(call);
 });
 
 function setupCallEventHandlers(call){
@@ -80,6 +69,7 @@ function setupCallEventHandlers(call){
     call.on('close', function(){
         removeVideo(call.remoteId);
         setupMakeCallUI();
+        alert('通話が終了しました。');
     });
 }
 
