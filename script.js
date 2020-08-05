@@ -32,11 +32,6 @@ peer.on('error', function(err){
     alert(err.message);
 });
 
-peer.on('call', function(call){
-    call.answer(localStream);
-    setupCallEventHandlers(call);
-});
-
 peer.on('close', function(){
 });
 
@@ -51,6 +46,11 @@ $('#make-call').submit(function(e){
 
 $('#end-call').click(function(){
     existingCall.close();
+});
+
+peer.on('call', function(call){
+    call.answer(localStream);
+    setupCallEventHandlers(call);
 });
 
 function setupCallEventHandlers(call){
@@ -69,7 +69,6 @@ function setupCallEventHandlers(call){
     call.on('close', function(){
         removeVideo(call.remoteId);
         setupMakeCallUI();
-        alert('通話が終了しました。');
     });
 }
 
