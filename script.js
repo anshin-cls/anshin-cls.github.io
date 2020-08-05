@@ -20,12 +20,13 @@ navigator.mediaDevices.getUserMedia({video: true, audio: true})
 peer = new Peer(
     ('000' + datetime.getMilliseconds()).slice(-3),{
     key: 'b0f8a736-9fd3-44ea-a0f0-5cf7a74c1b9d',
-    debug: 1
+    debug: 3
     // NONE=0,ERROR=1,WARN=2,ALL=3
 });
 
 peer.on('open', function(){
     $('#my-id').text(peer.id);
+    alert('setuzokuされました。');
 });
 
 peer.on('error', function(err){
@@ -38,6 +39,14 @@ peer.on('close', function(){
 
 peer.on('disconnected', function(){
     alert('シグナリングサーバーは切断されました。');
+});
+
+peer.on('peerJoin', function(){
+    alert('入室されました。');
+});
+
+peer.on('peerLeave', function(){
+    alert('退室されました。');
 });
 
 $('#make-call').submit(function(e){
