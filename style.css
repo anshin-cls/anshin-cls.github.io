@@ -60,6 +60,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
     display: none;
 }
 
+#send-message {
+    display: none;
+}
+
 #my-id {
     font-weight: bold;
 }
