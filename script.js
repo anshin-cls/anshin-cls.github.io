@@ -4,7 +4,7 @@ let localStream = null;
 let peer = null;
 let existingCall = null;
 let conn = null;
-let datetime = new Date();
+const datetime = new Date();
 
 navigator.mediaDevices.getUserMedia({video: true, audio: true})
 .then(function (stream) {
@@ -71,11 +71,12 @@ $("#send").click(function(){
     if(!message){
         return;
     }
-
     // 送信
     conn.send(message);
     // 自分の画面に表示
     $("#messages").append($("<p>").html("私: " + message));
+    // 最下部に移動
+    $("#messages").scrollTop($("#messages").offset().top);
     // 送信テキストボックスをクリア
     $("#message").val("");
 });
@@ -89,6 +90,8 @@ $("#delete").click(function(){
 function onRecvMessage(data) {
     // 画面に受信したメッセージを表示
     $("#messages").append($("<p>").text(conn.remoteId + ": " + data).css("font-weight", "bold"));
+    // 最下部に移動
+    $("#messages").scrollTop($("#messages").offset().top);
 }
 
 function setupCallEventHandlers(call){

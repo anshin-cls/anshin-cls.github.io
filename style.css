@@ -67,3 +67,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 #my-id {
     font-weight: bold;
 }
+
+#messages {
+    overflow: auto;
+    height: 144px;
+    line-height: 18px;
+}
