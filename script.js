@@ -59,7 +59,7 @@ peer.on('call', function(call){
 });
 
 $('#make-call').submit(function(e){
-    // デフォルト
+    // デフォルト動作のキャンセル
     e.preventDefault();
 
     // ビデオチャット
@@ -75,7 +75,10 @@ $('#make-call').submit(function(e){
     setupCallEventHandlers(call);
 });
 
-$('#end-call').click(function(){
+$('#end-call').submit(function(e){
+    // デフォルト動作のキャンセル
+    e.preventDefault();
+
     // ビデオチャットオブジェクトの削除
     existingCall.close();
 
