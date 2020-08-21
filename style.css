@@ -69,7 +69,11 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 }
 
 #messages {
+    box-sizing: border-box;
+    margin: 5px 5px 5px 0px;
     overflow: auto;
     height: 144px;
-    line-height: 18px;
+    background: #fff;
+    padding: 5px 5px 5px 5px;
+    border: 3px solid #0059b3;
 }

@@ -8,7 +8,7 @@
 <div class="pure-g">
     <!-- Video area -->
     <div class="pure-u-2-3" id="video-container">
-        <video id="their-video" autoplay></video>
+        <video id="their-video" muted="true" autoplay></video>
         <video id="my-video" muted="true" autoplay style="transform: scaleX(-1);"></video>
     </div>
     <!-- Steps -->
@@ -30,10 +30,8 @@
             <input type="text" placeholder="メッセージ を入力" id="message">
             <button id="send" class="pure-button pure-button-success">送信</button>
             <br>
-            <br>
-            <button id="delete" class="pure-button pure-button-warning" type="submit">消去</button>
-            <br>
             <div id="messages"></div>
+            <button id="delete" class="pure-button pure-button-warning" type="submit">消去</button>
             <br>
         </div>
         <br>
