@@ -117,8 +117,8 @@ $("#delete").click(function(){
 
 // メッセージ受信イベントの設定
 function onRecvMessage(data) {
+    // 非表示の場合の処理
     if (!$("#messages").is(":visible")) {
-        // 非表示の場合の処理
         // 通話時の UI に変更
         setupEndCallUI();
 
