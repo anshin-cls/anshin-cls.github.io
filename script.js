@@ -117,6 +117,15 @@ $("#delete").click(function(){
 
 // メッセージ受信イベントの設定
 function onRecvMessage(data) {
+    if (!$("#messages").is(":visible")) {
+        // 非表示の場合の処理
+        // 通話時の UI に変更
+        setupEndCallUI();
+
+        // 相手の ID を表示
+        $('#their-id').text(conn.remoteId);
+    }
+
     // テキストチャットに受信したメッセージを表示
     $("#messages").append($("<p>").text(conn.remoteId + ": " + data).css("font-weight", "bold"));
 
@@ -175,7 +184,7 @@ function removeVideo(peerId){
     $('#their-video').get(0).srcObject = undefined;
 }
 
-// 通話時の UI
+// 通常時の UI
 function setupMakeCallUI(){
     $('#make-call').show();
 
@@ -184,7 +193,7 @@ function setupMakeCallUI(){
     $('#send-message').hide();
 }
 
-// 通常時の UI
+// 通話時の UI
 function setupEndCallUI() {
     $('#make-call').hide();
 
