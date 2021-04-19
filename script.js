@@ -86,7 +86,7 @@ $('#end-call').submit(function(e){
     conn.close();
 });
 
-// Sendボタンクリック時の動作
+// Send ボタンクリック時の動作
 $("#send").click(function(){
     // 送信テキストの取得
     let message = $("#message").val();
@@ -109,7 +109,7 @@ $("#send").click(function(){
     $("#message").val("");
 });
 
-// deleteボタンクリック時の動作
+// Delete ボタンクリック時の動作
 $("#delete").click(function(){
     // テキストチャットメッセージを消去
     $("#messages").empty();
@@ -117,7 +117,7 @@ $("#delete").click(function(){
 
 // メッセージ受信イベントの設定
 function onRecvMessage(data) {
-    // 非表示の場合の処理
+    // 非表示の場合
     if (!$("#messages").is(":visible")) {
         // 通話時の UI に変更
         setupEndCallUI();
